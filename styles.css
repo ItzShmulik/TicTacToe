@@ -1,0 +1,19 @@
+body{
+    background-color: #795695;
+    margin: 0;
+    padding: 0;
+}
+
+#title{
+    text-align: center;
+    font-family: Calibri;
+    font-size: 50px;
+}
+
+.board{
+    width: 600px;
+    height: 600px;
+    margin-left: 50%;
+    margin-top: 5%;
+    transform: translateX(-300px);
+}
