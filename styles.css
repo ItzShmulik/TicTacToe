@@ -33,17 +33,30 @@ body{
     top: 20px;
 }
 
-button{
+.button{
     width: 125px;
     height: 125px;
     border-radius: 100%;
     border: black 2px solid;
     background-color: #b8b4b4;
+    padding: 0px;
     opacity: 10%;
 }
 
-button:hover{
+.button:hover{
     background-color: #cfcfcf;
     border: black 2px solid;
     opacity: 50%;
+}
+
+.x{
+    width: inherit;
+    height: inherit;
+    opacity: 100%;
+}
+
+.o{
+    width: inherit;
+    height: inherit;
+    opacity: 100%;
 }
