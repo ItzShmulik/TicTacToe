@@ -16,4 +16,34 @@ body{
     margin-left: 50%;
     margin-top: 5%;
     transform: translateX(-300px);
+    display: grid;
+}
+
+#buttons-board{
+    position: absolute;
+    width: 485px;
+    height: 300px;
+    display: flex;
+    gap: 40px;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 5px;
+    left: 72px;
+    top: 20px;
+}
+
+button{
+    width: 125px;
+    height: 125px;
+    border-radius: 100%;
+    border: black 2px solid;
+    background-color: #b8b4b4;
+    opacity: 10%;
+}
+
+button:hover{
+    background-color: #cfcfcf;
+    border: black 2px solid;
+    opacity: 50%;
 }
