@@ -27,7 +27,7 @@ for(let i = 0; i < grid.length; i++){
         const button = grid[i][j];
         button.addEventListener("click", function(){
             addSymbol(button, i, j);
-            check(row, column);
+            check(i, j);
         });
     }
 }
@@ -62,40 +62,82 @@ function addSymbol(b, row, column){
 function check(row, column){
     // Check row
     let rowXCount = 0, rowOCount = 0;
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < score[row].length; i++){
         if(score[row][i] == 'x') rowXCount++;
-        else if(score[row][i] == 'o') rowOCount;
+        else if(score[row][i] == 'o') rowOCount++;
     }
-    // Check Column
+
+    if(rowXCount == 3){
+        console.log("p1 won");
+        win("p1");
+        return;
+    }if(rowOCount == 3){
+        console.log("p2 won");
+        win("p2");
+        return;
+    }
+
+
+    // Check column
     let colXCount = 0, colOCount = 0;
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < score.length; i++){
         if(score[i][column] == 'x') colXCount++;
         else if(score[i][column] == 'o') colOCount++;
     }
 
-    // Check Main Diagonal
-    let mainDiagXCount = 0,  mainDiagOCount = 0;
-    for(let i = 0; i < 3; i++){
-        for(let j = 0; j < 3; j++){
+    if(colXCount == 3){
+        console.log("p1 won");
+        win("p1");
+        return;
+    }if(colOCount == 3){
+        console.log("p2 won");
+        win("p2");
+        return;
+    }
+
+    // Check Main diagonal (Top left to bottom right)
+    let mdXCount = 0, mdOCount = 0;
+    for (let i = 0; i < score.length; i++) {
+        for (let j = 0; j < score[i].length; j++) {
             if(i == j){
-                if(score[i][j] == 'x') mainDiagXCount++;
-                else if(score[i][j] == 'o') mainDiagOCount++;
-                break;
+                if(score[i][j] == 'x') mdXCount++;
+                else if(score[i][j] == 'o') mdOCount++;
             }
         }
     }
 
-    // Check Other diagonal
-    let othDiagXCount = 0, othDiagOCount = 0;
-    for(let i = 0; i < 3; i++){
-        for(let j = 3; j > 0; j--){
-            if(3- i == j){
-                if(score[i][j] == 'x') othDiagXCount++;
-                else if(score[i][j] == 'o') othDiagOCount++;
+    if(mdXCount == 3){
+        console.log("p1 won");
+        win("p1");
+        return;
+    }if(mdOCount == 3){
+        console.log("p2 won");
+        win("p2");
+        return;
+    }
+
+    // Check sub diagonal (Top right to bottom  left)
+    let sdXCount = 0, sdOCount = 0;
+    for (let i = 0; i < score.length; i++) {
+        for (let j = score[i].length - 1; j >= 0; j--) {
+            if(score[i].length - 1 - i == j){
+                if(score[i][j] == 'x') sdXCount++;
+                else if(score[i][j] == 'o') sdOCount++;
             }
         }
     }
 
-    if(rowXCount == 3 || colXCount == 3 || mainDiagXCount == 3 || othDiagXCount == 3) console.log("p1 win");
-    else if(rowOCount == 3 || colOCount == 3 || mainDiagOCount == 3 || othDiagOCount == 3) console.log("p2 win");
+    if(sdXCount == 3){
+        console.log("p1 won");
+        win("p1");
+        return;
+    }if(sdOCount == 3){
+        console.log("p2 won");
+        win("p2");
+        return;
+    }
+}
+
+function win(player){
+    
 }
