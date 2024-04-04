@@ -57,14 +57,25 @@ body{
     opacity: 50%;
 }
 
+@keyframes grow{
+    from {width: 5px; height: 5px;}
+    to {width: inherit; height: inherit;}
+}
+
 .x{
-    width: inherit;
-    height: inherit;
+    width: 5px;
+    height: 5px;
+    animation-name: grow;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
     opacity: 100%;
 }
 
 .o{
-    width: inherit;
-    height: inherit;
+    width: 5px;
+    height: 5px;
+    animation-name: grow;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
     opacity: 100%;
 }
