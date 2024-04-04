@@ -28,6 +28,7 @@ for(let i = 0; i < grid.length; i++){
         button.addEventListener("click", function(){
             addSymbol(button, i, j);
             check(i, j);
+            if(spacesLeft == 0) endGame("draw");
         });
     }
 }
@@ -69,11 +70,11 @@ function check(row, column){
 
     if(rowXCount == 3){
         console.log("p1 won");
-        win("p1");
+        endGame("p1");
         return;
     }if(rowOCount == 3){
         console.log("p2 won");
-        win("p2");
+        endGame("p2");
         return;
     }
 
@@ -87,11 +88,11 @@ function check(row, column){
 
     if(colXCount == 3){
         console.log("p1 won");
-        win("p1");
+        endGame("p1");
         return;
     }if(colOCount == 3){
         console.log("p2 won");
-        win("p2");
+        endGame("p2");
         return;
     }
 
@@ -108,11 +109,11 @@ function check(row, column){
 
     if(mdXCount == 3){
         console.log("p1 won");
-        win("p1");
+        endGame("p1");
         return;
     }if(mdOCount == 3){
         console.log("p2 won");
-        win("p2");
+        endGame("p2");
         return;
     }
 
@@ -129,15 +130,33 @@ function check(row, column){
 
     if(sdXCount == 3){
         console.log("p1 won");
-        win("p1");
+        endGame("p1");
         return;
     }if(sdOCount == 3){
         console.log("p2 won");
-        win("p2");
+        endGame("p2");
         return;
     }
 }
 
-function win(player){
+function endGame(player){
     
+    for(let i = 0; i < buttonGrid.length; i++){
+        const b = buttonGrid[i];
+        b.style.opacity = 100;
+        b.style.border = "none";
+        b.style.backgroundColor = "transparent";
+        b.disabled = true;
+    }
+
+    const winTxt = document.getElementById("win");
+    
+
+    setTimeout(() => {
+        if(player == "p1") winTxt.innerText = "Player 1 Win!";
+        else if(player == "p2") winTxt.innerText = "Player 2 Win!";
+        else winTxt.innerText = "Draw!";
+    }, 1000)
+
+   
 }
