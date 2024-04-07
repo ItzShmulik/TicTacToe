@@ -4,6 +4,10 @@ body{
     padding: 0;
 }
 
+img{
+    -webkit-user-drag: none;
+}
+
 #title{
     text-align: center;
     font-family: Calibri;
@@ -66,7 +70,7 @@ body{
     width: 5px;
     height: 5px;
     animation-name: grow;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
     opacity: 100%;
 }
@@ -75,7 +79,7 @@ body{
     width: 5px;
     height: 5px;
     animation-name: grow;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
     opacity: 100%;
 }
