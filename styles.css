@@ -62,7 +62,6 @@ img{
 }
 
 @keyframes grow{
-    from {width: 5px; height: 5px;}
     to {width: inherit; height: inherit;}
 }
 

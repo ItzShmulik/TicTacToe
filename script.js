@@ -27,8 +27,8 @@ for(let i = 0; i < grid.length; i++){
         const button = grid[i][j];
         button.addEventListener("click", function(){
             addSymbol(button, i, j);
-            check(i, j);
             if(spacesLeft == 0) endGame("draw");
+            check(i, j);
         });
     }
 }
